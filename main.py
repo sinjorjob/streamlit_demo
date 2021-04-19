@@ -1,7 +1,21 @@
 import streamlit as st
+import numpy as np
+import pandas as pd
+from PIL import Image
 import time
 
 st.title('Streamlit 入門')
+
+#df = pd.DataFrame({
+#    '1列目': [1,2,3,4],
+#    '2列目':[10,20,30,40]
+#})
+
+#st.write(df)
+#st.dataframe(df, width=100, height=100)
+#st.dataframe(df.style.highlight_max(axis=0))  #axis(0:行方向,1:列方向)
+
+#st.table(df.style.highlight_max(axis=0))  #axis(0:行方向,1:列方向)
 
 
 
@@ -15,6 +29,11 @@ df = pd.DataFrame(
     np.random.rand(100,2)/[50, 50] + [35.69, 139.70],
     columns=['lat', 'lon']
 )
+#st.line_chart(df)
+#st.area_chart(df)
+#st.bar_chart(df)
+
+#st.map(df_map)
 
 #画像表示on/off
 if st.checkbox("Show Image"):
@@ -23,6 +42,23 @@ if st.checkbox("Show Image"):
     st.image(img, caption='サンプル画像', use_column_width=True)  
 
 
+# option = st.selectbox(
+#     '好きな数字を選んで下さい',
+#     list(range(1,11))
+# )
+
+
+# "選択した数字は", option, "です。"
+
+
+
+# st.write('Interactive Widgets')
+
+# text = st.sidebar.text_input("好きな言語を教えてください。")
+# "好きな言語は", text, "です。"
+
+# condition = st.sidebar.slider('今の調子は？', 0, 100, 50)   # min, max, default value
+# "コンディション", condition
 
 left_column, right_column = st.beta_columns(2)    #2カラムに定義
 button = left_column.button('右カラムに文字を表示する。')
